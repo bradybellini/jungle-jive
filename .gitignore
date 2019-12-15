@@ -2,7 +2,9 @@
 
 key.py
 .vscode
-
+*.sqlite3
+*.db
+*.db-journal
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
