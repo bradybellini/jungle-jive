@@ -10,6 +10,18 @@ class Music(commands.Cog, name="Please don't stop the music"):
         self.client = client
     
     @commands.command(aliases=['history'])
-    async def gethistory(self, ctx, ping=None):
-        async for message in client.channel.history(limit=1000):
-            if message
+    async def gethistory(self, ctx):
+        async for message in self.client.channel.history(limit=1000):
+            messages = await channel.history(limit=1000).flatten()
+            if 'htt' in message.content:
+                await ctx.send(messages)
+                # main = sqlite3.connect('music.db')
+                # cursor = main.cursor()
+                # sql = ("INSERT INTO links(link, date_posted, author, jump_url)")
+                # val = (str(message.con))
+
+
+def setup(client):
+    client.add_cog(Music(client))
+    print('Music Cog loaded')
+
