@@ -5,7 +5,7 @@ from discord.ext import commands, tasks
 from itertools import cycle
 
 #Meta stuff#
-client = commands.Bot(command_prefix = '!jj')
+client = commands.Bot(command_prefix = 'jj.')
 # client.remove_command('help')
 status = '!jj help'
 
