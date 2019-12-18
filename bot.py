@@ -18,7 +18,7 @@ status = 'jj.help'
 #Says when bot is ready and invokes listed loops#
 @client.event
 async def on_ready():
-    change_status.start()
+    await client.change_presence(activity=discord.Game('jj.help'))
     print('Bot is ready')
 
 #########################################
@@ -27,9 +27,10 @@ async def on_ready():
 #                                       #
 #########################################
 
-@tasks.loop(minutes=10)
-async def change_status():
-    await client.change_presence(activity=discord.Game(status))
+# if you want the status to loop you can change this.
+# @tasks.loop(minutes=10)
+# async def change_status():
+#     await client.change_presence(activity=discord.Game(status))
 
 #########################################
 #                                       #
