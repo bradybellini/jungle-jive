@@ -34,7 +34,6 @@ class Music(commands.Cog, name="Please don't stop the music"):
     @commands.Cog.listener()
     async def on_message(self, message:discord.Message):
         if message.author == self.client.user:
-            print('returned')
             return
         else:
             main = sqlite3.connect('music.db')
@@ -45,8 +44,7 @@ class Music(commands.Cog, name="Please don't stop the music"):
                 if not result:
                     sql = ("INSERT INTO links(link, date_posted, author, jump_link) VALUES(?,?,?,?)")
                     val = (str(message.content), str(message.created_at.date()), str(message.author), str(message.jump_url))
-                    cursor.execute(sql, val)
-                    
+                    cursor.execute(sql, val)                   
                 else:
                     embed = discord.Embed(colour = 0x7ed321, description = "This song/link was already posted!")
                     embed.timestamp = datetime.utcnow()
