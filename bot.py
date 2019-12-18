@@ -7,7 +7,7 @@ from itertools import cycle
 #Meta stuff#
 client = commands.Bot(command_prefix = 'jj.')
 # client.remove_command('help')
-status = '!jj help'
+status = 'jj.help'
 
 #########################################
 #                                       #
@@ -29,7 +29,7 @@ async def on_ready():
 
 @tasks.loop(minutes=10)
 async def change_status():
-    await client.change_presence(activity=discord.Game(next(status)))
+    await client.change_presence(activity=discord.Game(status))
 
 #########################################
 #                                       #
